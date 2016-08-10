@@ -15,6 +15,8 @@ var ENV = process.env.npm_lifecycle_event;
 var isTest = ENV === 'test' || ENV === 'test-watch';
 var isProd = ENV === 'build';
 
+console.log("******************",ENV,isProd);
+
 module.exports = function makeWebpackConfig () {
   /**
    * Config
@@ -66,7 +68,8 @@ module.exports = function makeWebpackConfig () {
   } else if (isProd) {
     config.devtool = 'source-map';
   } else {
-    config.devtool = 'eval-source-map';
+    // config.devtool = 'eval-source-map';
+    config.devtool = 'inline-source-map';
   }
 
   /**

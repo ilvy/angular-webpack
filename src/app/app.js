@@ -1,25 +1,55 @@
 import angular from 'angular';
+import ngRoute from 'angular-route';
+import sideNav from '../public/modules/sideNav/sideNav';
+// import RouteCtrl from '../next/next';
 
-import '../style/app.css';
-
-let app = () => {
-  return {
-    template: require('./app.html'),
-    controller: 'AppCtrl',
-    controllerAs: 'app'
-  }
-};
-
-class AppCtrl {
-  constructor() {
-    this.url = 'https://github.com/preboot/angular-webpack';
-  }
-}
+// import '../style/side-nav.css';
 
 const MODULE_NAME = 'app';
 
-angular.module(MODULE_NAME, [])
-  .directive('app', app)
-  .controller('AppCtrl', AppCtrl);
-
+var App = angular.module(MODULE_NAME, ['ngRoute','side-nav']);
+    // App.directive('sideNav',['$http','$scope',function($http,$scope){
+    //     return {
+    //         restrict:'EA',
+    //         template:'<span>test</span>'
+    //     };
+    // }]);
+    App.config(['$controllerProvider', '$routeProvider','$compileProvider', function($controllerProvider, $routeProvider,$compileProvider) {
+        App.controller = $controllerProvider.register;
+        // App.directive = $compileProvider.directive;
+        $routeProvider
+        .when('/login',{
+            templateUrl:'/modules/login/login.html',
+            controller:'login',
+            resolve:{
+                resolver:['$q',
+                    function($q){
+                        var deferred = $q.defer();
+                        require.ensure('../public/modules/login/login.js',function(){
+                            require('../public/modules/login/login.js');
+                            deferred.resolve();
+                        })
+                        return deferred.promise;
+                    }
+                ]
+            }
+        })
+        .when('/constant-error',{
+            templateUrl:'/modules/constantError/constantError.html',
+            controller:'constantError',
+            resolve:{
+                resolver:['$q',
+                    function($q){
+                        var deferred = $q.defer();
+                        require.ensure('../public/modules/constantError/constantError.js',function(){
+                            require('../public/modules/constantError/constantError.js');
+                            deferred.resolve();
+                        })
+                        return deferred.promise;
+                    }
+                ]
+            }
+        })
+        // .otherwise({redirectTo:'/login'});
+    }]);
 export default MODULE_NAME;

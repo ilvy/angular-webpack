@@ -1,0 +1,30 @@
+<table>
+	<thead>
+		<tr>
+			<th>err_type</th>
+			<th>错误链接地址</th>
+			<th>报错js地址</th>
+			<th>错误详情</th>
+			<th>错误堆栈信息</th>
+			<th>平台类型</th>
+			<th>网络类型</th>
+			<th>手机品牌</th>
+			<th>报错CGI</th>
+			<th>用户名</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr ng-repeat="err in errors">
+			<td>{{err.err_type}}</td>
+			<td>{{err.url}}</td>
+			<td>{{err.jsUrl}}</td>
+			<td>{{err.pf}}</td>
+			<td>{{err.netType}}</td>
+			<td>{{err.mobile}}</td>
+			<td>{{err.cgi}}</td>
+			<td>{{err.witness}}</td>
+			<td>{{err.appVersion}}</td>
+		</tr>
+	</tbody>
+		
+</table>
