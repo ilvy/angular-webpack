@@ -83,6 +83,7 @@ a:active,a:focus,a:link {outline: none;}
 }
 .bd #leftColContainer{
 	float:left;
+  margin-left: -228px;
 	display:inline;
   padding-bottom:50px;
 }
@@ -1090,6 +1091,10 @@ table.data-load td.td-head-nopadding .hidden{
 }
 #siderNav > ul.nav-items > li:last-child{
   border-bottom: 0;
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+}
+#siderNav > ul.nav-items > li:last-child > ul{
   border-bottom-left-radius: 8px;
   border-bottom-right-radius: 8px;
 }

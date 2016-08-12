@@ -1,0 +1,55 @@
+/* styles in src/style directory are applied to the whole page */
+
+body {}
+
+a {
+    color: #03A9F4;
+}
+
+.siderNavContainer,
+.mainContainer {
+    float: left;
+    background-color: #fbfbfb;
+}
+
+@margin: 12px;
+@padding: 12px;
+@mainWdith: 996px;
+.view {
+    margin: 0 @margin;
+    padding: 15px 0 20px 228px;
+    overflow-x: hidden;
+}
+
+.mainContainer {
+    width: 100%;
+}
+
+.main-header{
+    background-color: #eaeaea;
+    padding: @padding;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    span.module-name{
+
+    }
+}
+
+.constant-error{
+    .table{
+        background-color: #fff;
+    }
+    .err-type{
+        float: right;
+        margin: @margin;
+    }
+}
+
+.header{
+    text-align: center;
+    background-color: #212121;
+    color: #fff;
+    font-size: 42px;
+    font-weight: bolder;
+    padding: @padding 0;
+}

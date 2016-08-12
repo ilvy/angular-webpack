@@ -6,6 +6,7 @@ var autoprefixer = require('autoprefixer');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
 var CopyWebpackPlugin = require('copy-webpack-plugin');
+var BrowserSyncPlugin = require('browser-sync-webpack-plugin');
 
 /**
  * Env
@@ -105,6 +106,21 @@ module.exports = function makeWebpackConfig () {
       // Use style-loader in development.
       loader: isTest ? 'null' : ExtractTextPlugin.extract('style-loader', 'css-loader?sourceMap!postcss-loader')
     }, {
+      // CSS LOADER
+      // Reference: https://github.com/webpack/css-loader
+      // Allow loading css through js
+      //
+      // Reference: https://github.com/postcss/postcss-loader
+      // Postprocess your css with PostCSS plugins
+      test: /\.less$/,
+      // Reference: https://github.com/webpack/extract-text-webpack-plugin
+      // Extract css files in production builds
+      //
+      // Reference: https://github.com/webpack/style-loader
+      // Use style-loader in development.
+      loader: isTest ? 'null' : ExtractTextPlugin.extract('style-loader', 'css?sourceMap!' +
+                    'less?sourceMap')
+    }, {
       // ASSET LOADER
       // Reference: https://github.com/webpack/file-loader
       // Copy png, jpg, jpeg, gif, svg, woff, woff2, ttf, eot files to output
@@ -168,7 +184,27 @@ module.exports = function makeWebpackConfig () {
       // Reference: https://github.com/webpack/extract-text-webpack-plugin
       // Extract css files
       // Disabled when in test mode or not in build mode
-      new ExtractTextPlugin('[name].[hash].css', {disable: !isProd})
+      // new ExtractTextPlugin('[name].[hash].css', {disable: !isProd})
+      new ExtractTextPlugin('styles.css'),
+      new BrowserSyncPlugin(
+        // BrowserSync options 
+        {
+          // browse to http://localhost:3000/ during development 
+          host: 'localhost',
+          port: 8080,
+          server:{baseDir:['./dist']},
+          // proxy the Webpack Dev Server endpoint 
+          // (which should be serving on http://localhost:3100/) 
+          // through BrowserSync 
+          // proxy: 'http://112.74.107.76:4000/'
+        },
+        // plugin options 
+        {
+          // prevent BrowserSync from reloading the page 
+          // and let Webpack Dev Server take care of this 
+          reload: false
+        }
+      )
     )
   }
 

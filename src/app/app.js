@@ -8,12 +8,6 @@ import sideNav from '../public/modules/sideNav/sideNav';
 const MODULE_NAME = 'app';
 
 var App = angular.module(MODULE_NAME, ['ngRoute','side-nav']);
-    // App.directive('sideNav',['$http','$scope',function($http,$scope){
-    //     return {
-    //         restrict:'EA',
-    //         template:'<span>test</span>'
-    //     };
-    // }]);
     App.config(['$controllerProvider', '$routeProvider','$compileProvider', function($controllerProvider, $routeProvider,$compileProvider) {
         App.controller = $controllerProvider.register;
         // App.directive = $compileProvider.directive;

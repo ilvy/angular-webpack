@@ -1,5 +1,5 @@
 [
-	{"key":"概况","value":[{"name":"实时统计"},{"name":"整体趋势"}]},
-	{"key":"用户分析","value":[{"name":"新增用户"},{"name":"活跃用户"},{"name":"沉默用户"},{"name":"启动次数"},{"name":"版本分布"},{"name":"行业数据"}]},
-	{"key":"类别一","value":[{"name":"行业数据"},{"name":"子类别1"},{"name":"子类别2"},{"name":"子类别3"},{"name":"子类别4"}]}
+	{"key":"实时数据","value":[{"name":"js实时报错信息","href":"#constant-error"}]},
+	{"key":"五分钟数据","value":[{"name":"js错误五分钟统计","href":"#fiveminute-error"},{"name":"五分钟点击","href":"#fiveminute-click"}]},
+	{"key":"指标趋势看盘","value":[{"name":"js错误","href":"#jserror-index-trend-plate"},{"name":"页面点击","":"#click-index-trend-palte"}]}
 ]

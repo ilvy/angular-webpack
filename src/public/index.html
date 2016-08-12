@@ -1,19 +1,26 @@
 <!doctype html>
 <html ng-app="app" lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Angular App</title>
-  <link rel="icon" type="image/x-icon" href="/img/favicon.ico">
-  <link rel="stylesheet" type="text/css" href="./style/side-nav.css">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <base href="/">
+<head>
+    <meta charset="UTF-8">
+    <title>Angular App</title>
+    <link rel="icon" type="image/x-icon" href="/img/favicon.ico">
+    <link rel="stylesheet" type="text/css" href="./style/side-nav.css">
+    <link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <base href="/">
 </head>
+
 <body>
-  <div class="view">
-  	<side-nav></side-nav>
-  	<ng-view />
-  </div>
+	<px-header></px-header>
+    <div class="view">
+        <side-nav class="siderNavContainer"></side-nav>
+        <div class="mainContainer">
+            <main-header></main-header>
+            <ng-view />
+        </div>
+    </div>
 </body>
 <script src="http://rap.firstshare.cn/rap.plugin.js?projectId=34"></script>
+
 </html>

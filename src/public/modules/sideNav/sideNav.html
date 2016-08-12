@@ -2,27 +2,13 @@
     <div id="leftColContainer">
         <div class="leftCol">
             <div id="siderNav">
-                <ul class="nav-items" ng-repeat="navObj in navList">
-                    <li class="nav-item item-top " ng-click="toggle($index)" ng-class="{'current-item':ind==$index,on:ind==$index}">
+                <ul class="nav-items">
+                    <li class="nav-item item-top " ng-click="toggle($index)" ng-class="{'current-item':ind==$index,on:ind==$index}" ng-repeat="navObj in navList">
                         <span><a><b class="icon item-1"></b>{{navObj.key}}</a></span>
-                        <ul class="sub-list" ng-repeat="liObj in navObj['value']">
-                            <li><a page_id="RealtimeSummary">{{liObj.name}}</a></li>
+                        <ul class="sub-list">
+                            <li ng-repeat="liObj in navObj['value']"><a href="{{liObj.href}}" page_id="RealtimeSummary" ng-click="changeModule(liObj.name)">{{liObj.name}}</a></li>
                         </ul>
                     </li>
-            </div>
-            <div id="siderDownLoad">
-                <div class="sdkdown">
-                    <a href="http://dev.umeng.com/analytics/ios-doc/sdk-download" target="_blank">统计SDK下载</a>
-                    <p class="updatetime">版本: <span class="sdk_version">4.1.0</span>&nbsp;更新时间: <span class="sdk_update_date">2016-08-03</span></p>
-                    <a href="/enterprise_certificate" target="_blank" style="margin-top: 10px;" class="apply-app" onclick="_gaq.push(['_trackEvent', '侧边栏按钮', '点击', '申请APP企业认证'])">申请APP企业认证</a>
-                    <a style="display: inline-block;width: 198px;text-align: center;color: #595959;border:none;background:#fff;padding:0;box-shadow:none;font-size: 12px;;text-decoration:underline;" href="/enterprise_certificate_intro" target="_blank" onclick="_gaq.push(['_trackEvent', '侧边栏按钮', '点击', '了解APP企业认证'])">点击了解APP企业认证</a>
-                </div>
-                <div class="hidden">
-                    <input type="hidden" id="sdkPlatform" value="iphone">
-                    <input type="hidden" id="sdkReports" value="true">
-                    <input type="hidden" id="sdkSettings" value="">
-                    <input type="hidden" id="sdkDLUrl" value="http://dev.umeng.com/enquiry/get_sdk_version_date_jsonp">
-                </div>
             </div>
             <!--<div class="testin"><a href="#" id='login_testin'></a><a class="icon help poptips" action-frame="tip_testin" title=""></a></div>-->
             <!---->
